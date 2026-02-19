@@ -1,18 +1,3 @@
-        ; Store increment load MA with function
-        NIOP 054        ;reset
-start:  NIOS 054        ;set busy
-        LDA 0,test_MA   ;load AC0 test value
-        JSR load_SR     ;load SR
-        LDA 0,FN_MA_D   ;load AC0 with MA deposit increment
-        JSR load_FN     ;load FN
-        LDA 0,FN_MD_D   ;load AC0 with DM_MA deposit increment
-        JSR load_FN     ;load FN
-        LDA 0,FN_MA_E   ;load AC0 with MA examine to LN
-        JSR load_FN     ;load FN
-        JSR read_LT     ;read LT
-        HALT            ;examine AC1
-        JMP start
-
 test_MA:0000010         ;MA address
 FN_MA_D:0001102         ;FN_MA_D command
 FN_MA_E:0002102         ;FN_MA_E command
