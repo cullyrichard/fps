@@ -39,7 +39,7 @@ load_SR:STA 3,FN_RET
 ;AC0 is LT
 read_LT:STA 3,FN_RET
         STA 1,SAC1
-        LDA 1,LT_ r 
+        LDA 1,LT_r 
         DOA 1,054
         DIB 0,054
         LDA 1,SAC1
