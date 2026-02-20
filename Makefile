@@ -1,5 +1,5 @@
-SOURCE ?= $(wildcard *.asm)         #overidable source
-INCLUDES ?= lib/FPS_lib.asm         #overitable includes
+SOURCE ?= $(wildcard *.asm)     #overridable source
+INCLUDES ?= lib/FPS_lib.asm     #overridable includes
 DGASM = ../dgnsdk/dgnasm_old/dgnasm
 
 .PHONY: txt bin all clean           #list fileless make entry
@@ -17,4 +17,4 @@ all: txt bin
 	mv a.out $@
 
 clean:
-	rm $(SOURCE:.asm=.txt) $(SOURCE:.asm=.bin)
+	rm -f $(SOURCE:.asm=.txt) $(SOURCE:.asm=.bin)
