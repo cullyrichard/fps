@@ -1,6 +1,3 @@
-	;; DEFINES SECTION
-	#define FPU 054
-
 	JMP reset
 
 	;; DATA SECTION
@@ -8,7 +5,6 @@ results_addr:		0000100
 load_addr:		0000200
 program_ptr:		program
 program_end_ptr:	program_end
-stop_bit:		FN_STOP
 
 fn_load_tma:		0001002
 fn_load_ps:		0001000
@@ -68,20 +64,20 @@ program:
 program_end:
 	
 	;; CODE SECTION
-reset:	NIOP FPU		; Reset the FPU
-start:	NIOS FPU		; Set the FPU to busy
+reset:	NIOP 054		; Reset the FPU
+start:	NIOS 054		; Set the FPU to busy
 
 	;; First, set the switches to the address in question
 	LDA 0,load_addr
 	LDA 1,cmd_wtsr
-	DOA 1,FPU
-	DOB 0,FPU
+	DOA 1,054
+	DOB 0,054
 
 	;; Load address into TMA
 	LDA 0,fn_load_tma
-	LRA 1,cmd_wtfn
-	DOA 1,FPU
-	DOB 0,FPU
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
 
 	LDA 2,program_ptr
 	LDA 3,program_end_ptr
@@ -89,26 +85,26 @@ start:	NIOS FPU		; Set the FPU to busy
 	;; Prime the pump - initial deposit must be without increment
 	LDA 0,0,2		; Indirectly load from the pointer in AC2
 	LDA 1,cmd_wtsr
-	DOA 1,FPU
-	DOB 0,FPU
+	DOA 1,054
+	DOB 0,054
 
 	LDA 0,fn_load_ps
 	LDA 1,cmd_wtfn
-	DOA 1,FPU
-	DOB 0,FPU
+	DOA 1,054
+	DOB 0,054
 
 	INC 2,2
 
 	;;  Load the program onto the FPU
 loadpg:	LDA 0,0,2		; Indirectly load from the pointer in AC2
 	LDA 1,cmd_wtsr
-	DOA 1,FPU
-	DOB 0,FPU
+	DOA 1,054
+	DOB 0,054
 
 	LDA 0,fn_load_inc_ps
 	LDA 1,cmd_wtfn
-	DOA 1,FPU
-	DOB 0,FPU
+	DOA 1,054
+	DOB 0,054
 
 	INC 2,2
 	SUB# 2,3,SZR
@@ -117,19 +113,19 @@ loadpg:	LDA 0,0,2		; Indirectly load from the pointer in AC2
 	;; Start the FPU, at the address in SR
 	LDA 0,load_addr
 	LDA 1,cmd_wtsr
-	DOA 1,FPU
-	DOB 0,FPU
+	DOA 1,054
+	DOB 0,054
 
 	LDA 0,fn_start
 	LDA 1,cmd_wtfn
-	DOA 1,FPU
-	DOB 0,FPU
+	DOA 1,054
+	DOB 0,054
 
 	;; Wait until the FPU is finished
 waitstop:
 	LDA 1,cmd_rdfn
-	DOA 1,FPU
-	DIB 0,FPU
+	DOA 1,054
+	DIB 0,054
 
 	LDA 1,fn_stop
 	AND# 0,1,SNR
@@ -137,56 +133,56 @@ waitstop:
 
 	;; Read back the results
 	LDA 0,results_addr
-	LRA 1,cmd_wtsr
-	DOA 1,FPU
-	DOB 0,FPU
+	LDA 1,cmd_wtsr
+	DOA 1,054
+	DOB 0,054
 
 	;; Load address into TMA
 	LDA 0,fn_load_tma
-	LRA 1,cmd_rtfn
-	DOA 1,FPU
-	DOB 0,FPU
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
 
 	;; First word
 	LDA 0,fn_examine_regps
-	LRA 1,cmd_rtfn
-	DOA 1,FPU
-	DOB 0,FPU
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
 
 	LDA 1,cmd_rdlt
-	DOA 1,FPU
-	DIB 0,FPU
+	DOA 1,054
+	DIB 0,054
 	HALT
 
 	;; Second word
 	LDA 0,fn_examine_regps_o1
-	LRA 1,cmd_wtfn
-	DOA 1,FPU
-	DOB 0,FPU
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
 
 	LDA 1,cmd_rdlt
-	DOA 1,FPU
-	DIB 0,FPU
+	DOA 1,054
+	DIB 0,054
 	HALT
 
 	;; Third word
 	LDA 0,fn_examine_regps_o2
-	LRA 1,cmd_wtfn
-	DOA 1,FPU
-	DOB 0,FPU
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
 
 	LDA 1,cmd_rdlt
-	DOA 1,FPU
-	DIB 0,FPU
+	DOA 1,054
+	DIB 0,054
 	HALT
 
 	;; Fourth word
 	LDA 0,fn_examine_regps_o3
-	LRA 1,cmd_wtfn
-	DOA 1,FPU
-	DOB 0,FPU
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
 
 	LDA 1,cmd_rdlt
-	DOA 1,FPU
-	DIB 0,FPU
+	DOA 1,054
+	DIB 0,054
 	HALT
