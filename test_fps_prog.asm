@@ -5,16 +5,19 @@ results_addr:		0000100
 load_addr:		0000200
 program_ptr:		program
 program_end_ptr:	program_end
+stop_bit:		FN_STOP
 
-fn_load_tma:		0001002
-fn_load_ps:		0001000
-fn_load_inc_ps:		0001100
+fn_load_tma:		0001003
+fn_load_ps_0:		0001010
+fn_load_ps_1:		0001030
+fn_load_ps_2:		0001050
+fn_load_ps_3:		0001170
 fn_start:		0040000
 fn_stop:		0100000
-fn_examine_regps:	0002000
-fn_examine_regps_o1:	0002020
-fn_examine_regps_o2:	0002040
-fn_examine_regps_o3:	0002060
+fn_examine_regps:	0002010
+fn_examine_regps_o1:	0002030
+fn_examine_regps_o2:	0002050
+fn_examine_regps_o3:	0002070
 
 cmd_wtsr:		0021031
 cmd_wtfn:		0022031
@@ -75,25 +78,12 @@ start:	NIOS 054		; Set the FPU to busy
 
 	;; Load address into TMA
 	LDA 0,fn_load_tma
-	LDA 1,cmd_wtfn
+	LRA 1,cmd_wtfn
 	DOA 1,054
 	DOB 0,054
 
 	LDA 2,program_ptr
 	LDA 3,program_end_ptr
-
-	;; Prime the pump - initial deposit must be without increment
-	LDA 0,0,2		; Indirectly load from the pointer in AC2
-	LDA 1,cmd_wtsr
-	DOA 1,054
-	DOB 0,054
-
-	LDA 0,fn_load_ps
-	LDA 1,cmd_wtfn
-	DOA 1,054
-	DOB 0,054
-
-	INC 2,2
 
 	;;  Load the program onto the FPU
 loadpg:	LDA 0,0,2		; Indirectly load from the pointer in AC2
@@ -101,7 +91,43 @@ loadpg:	LDA 0,0,2		; Indirectly load from the pointer in AC2
 	DOA 1,054
 	DOB 0,054
 
-	LDA 0,fn_load_inc_ps
+	LDA 0,fn_load_ps_0
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
+
+	INC 2,2
+	
+	LDA 0,0,2		; Indirectly load from the pointer in AC2
+	LDA 1,cmd_wtsr
+	DOA 1,054
+	DOB 0,054
+
+	LDA 0,fn_load_ps_1
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
+
+	INC 2,2
+	
+	LDA 0,0,2		; Indirectly load from the pointer in AC2
+	LDA 1,cmd_wtsr
+	DOA 1,054
+	DOB 0,054
+
+	LDA 0,fn_load_ps_2
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
+
+	INC 2,2
+	
+	LDA 0,0,2		; Indirectly load from the pointer in AC2
+	LDA 1,cmd_wtsr
+	DOA 1,054
+	DOB 0,054
+
+	LDA 0,fn_load_ps_3
 	LDA 1,cmd_wtfn
 	DOA 1,054
 	DOB 0,054
@@ -139,13 +165,13 @@ waitstop:
 
 	;; Load address into TMA
 	LDA 0,fn_load_tma
-	LDA 1,cmd_wtfn
+	LRA 1,cmd_rtfn
 	DOA 1,054
 	DOB 0,054
 
 	;; First word
 	LDA 0,fn_examine_regps
-	LDA 1,cmd_wtfn
+	LRA 1,cmd_rtfn
 	DOA 1,054
 	DOB 0,054
 
