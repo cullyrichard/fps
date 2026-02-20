@@ -14,10 +14,12 @@ fn_load_ps_2:		0001050
 fn_load_ps_3:		0001170
 fn_start:		0040000
 fn_stop:		0100000
-fn_examine_regps:	0002010
-fn_examine_regps_o1:	0002030
-fn_examine_regps_o2:	0002050
-fn_examine_regps_o3:	0002070
+
+fn_load_ma:		0001002
+fn_examine_regmd:	0002015
+fn_examine_regmd_o1:	0002035
+fn_examine_regmd_o2:	0002055
+fn_examine_regmd_o3:	0002075
 
 cmd_wtsr:		0021031
 cmd_wtfn:		0022031
@@ -163,14 +165,14 @@ waitstop:
 	DOA 1,054
 	DOB 0,054
 
-	;; Load address into TMA
-	LDA 0,fn_load_tma
+	;; Load address into MMA
+	LDA 0,fn_load_ma
 	LRA 1,cmd_rtfn
 	DOA 1,054
 	DOB 0,054
 
 	;; First word
-	LDA 0,fn_examine_regps
+	LDA 0,fn_examine_regmd
 	LRA 1,cmd_rtfn
 	DOA 1,054
 	DOB 0,054
@@ -181,7 +183,7 @@ waitstop:
 	HALT
 
 	;; Second word
-	LDA 0,fn_examine_regps_o1
+	LDA 0,fn_examine_regmd_o1
 	LDA 1,cmd_wtfn
 	DOA 1,054
 	DOB 0,054
@@ -192,7 +194,7 @@ waitstop:
 	HALT
 
 	;; Third word
-	LDA 0,fn_examine_regps_o2
+	LDA 0,fn_examine_regmd_o2
 	LDA 1,cmd_wtfn
 	DOA 1,054
 	DOB 0,054
@@ -203,7 +205,7 @@ waitstop:
 	HALT
 
 	;; Fourth word
-	LDA 0,fn_examine_regps_o3
+	LDA 0,fn_examine_regmd_o3
 	LDA 1,cmd_wtfn
 	DOA 1,054
 	DOB 0,054
