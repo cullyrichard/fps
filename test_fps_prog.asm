@@ -1,73 +1,100 @@
 	JMP reset
-
-	;; DATA SECTION
-results_addr:		0000100
-load_addr:		0000200
-program_ptr:		program
-program_end_ptr:	program_end
-stop_bit:		FN_STOP
-
-fn_load_tma:		0001003
-fn_load_ps_0:		0001010
-fn_load_ps_1:		0001030
-fn_load_ps_2:		0001050
-fn_load_ps_3:		0001170
-fn_start:		0040000
-fn_stop:		0100000
-
-fn_load_ma:		0001002
-fn_examine_regmd:	0002015
-fn_examine_regmd_o1:	0002035
-fn_examine_regmd_o2:	0002055
-fn_examine_regmd_o3:	0002075
-
-cmd_wtsr:		0021031
-cmd_wtfn:		0022031
-cmd_rdfn:		0022030
-cmd_rdlt:		0023030
-
 program:
-	000003
-	102000
-	002000
-	000100
-
-	000003
-	106000
-	002000
-	004430
-
-	000001
-	145000
-	000000
-	000000
-
-	000003
-	106000
-	002000
-	004451
-
-	000001
-	141000
-	000000
-	000000
-
-	000001
-	100000
-	000000
-	000000
-
-	000000
-	000000
-	000000
-	000240
-
-	000003
-	170000
-	000000
-	000000
-program_end:
 	
+	;; LDMA; DB=@77
+	;; LDTMA;DB=!THIRD
+	;; FADD TM, ZERO
+	;; LDTMA;DB=!SIXTN
+	;; FADD
+	;; FADD TM, FA
+	;; FADD
+	;; MI<FA; INCMA
+	;; HALT
+	0000000
+	0000000
+	0000000
+	0000000
+
+	0000000
+	0000000
+	0000000
+	0000000
+
+	0000000
+	0000000
+	0000000
+	0000000
+
+	0000000
+	0000000
+	0000000
+	0000000
+
+	0000000
+	0000000
+	0000000
+	0000000
+
+	0000003
+	0102000
+	0002000
+	0176000
+	;; 0000077
+
+	0000003
+	0106000
+	0002000
+	;; 0004430
+	0014220
+
+	0000000
+	0000000
+	0000000
+	0000000
+
+	0000001
+	0145000
+	0000000
+	0000000
+
+	0000003
+	0106000
+	0002000
+	;; 0004451
+	0112220
+
+	0000000
+	0000000
+	0000000
+	0000000
+
+	0000001
+	0100000
+	0000000
+	0000000
+
+	0000001
+	0141000
+	0000000
+	0000000
+
+	0000001
+	0100000
+	0000000
+	0000000
+
+	0000000
+	0000000
+	0000000
+	0000240
+
+	0000003
+	0170000
+	0000000
+	0000000
+program_end:
+
+	.text
 	;; CODE SECTION
 reset:	NIOP 054		; Reset the FPU
 start:	NIOS 054		; Set the FPU to busy
@@ -80,7 +107,7 @@ start:	NIOS 054		; Set the FPU to busy
 
 	;; Load address into TMA
 	LDA 0,fn_load_tma
-	LRA 1,cmd_wtfn
+	LDA 1,cmd_wtfn
 	DOA 1,054
 	DOB 0,054
 
@@ -165,22 +192,11 @@ waitstop:
 	DOA 1,054
 	DOB 0,054
 
-	;; Load address into MMA
+	;; Load address into MA
 	LDA 0,fn_load_ma
-	LRA 1,cmd_rtfn
+	LDA 1,cmd_wtfn
 	DOA 1,054
 	DOB 0,054
-
-	;; First word
-	LDA 0,fn_examine_regmd
-	LRA 1,cmd_rtfn
-	DOA 1,054
-	DOB 0,054
-
-	LDA 1,cmd_rdlt
-	DOA 1,054
-	DIB 0,054
-	HALT
 
 	;; Second word
 	LDA 0,fn_examine_regmd_o1
@@ -214,3 +230,29 @@ waitstop:
 	DOA 1,054
 	DIB 0,054
 	HALT
+	JMP start
+	;; DATA SECTION
+results_addr:		0000100
+load_addr:		0000200
+program_ptr:		program
+program_end_ptr:	program_end
+
+fn_load_tma:		0001003
+fn_load_ps_0:		0001010
+fn_load_ps_1:		0001030
+fn_load_ps_2:		0001050
+fn_load_ps_3:		0001170
+fn_start:		0040000
+fn_stop:		0100000
+
+fn_load_ma:		0001002
+fn_examine_regmd:	0002015
+fn_examine_regmd_o1:	0002035
+fn_examine_regmd_o2:	0002055
+fn_examine_regmd_o3:	0002075
+
+cmd_wtsr:		0021031
+cmd_wtfn:		0022031
+cmd_rdfn:		0022030
+cmd_rdlt:		0023030
+
