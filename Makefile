@@ -1,5 +1,5 @@
 SOURCE ?= $(wildcard *.asm)     #overridable source
-INCLUDES ?= lib/FPS_lib.asm     #overridable includes
+INCLUDES ?=                     #overridable includes
 DGASM = ../dgnsdk/dgnasm_old/dgnasm
 
 .PHONY: txt bin all clean           #list fileless make entry
