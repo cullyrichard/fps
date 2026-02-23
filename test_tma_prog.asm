@@ -14,6 +14,12 @@ start:	NIOS 054		; Set the FPU to busy
 	LDA 1,cmd_wtfn
 	DOA 1,054
 	DOB 0,054
+	
+	;; Dummy Load address into TMA
+	LDA 0,fn_load_tma
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
 
 	;; Second word
 	LDA 0,fn_examine_regtm_o1
