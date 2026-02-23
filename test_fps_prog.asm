@@ -133,7 +133,37 @@ waitstop:
 	LDA 1,fn_stop
 	AND# 0,1,SNR
 	JMP waitstop
+	JMP read_back
 
+	;; DATA SECTION
+results_addr:		0000100
+load_addr:		0000200
+program_ptr:		program
+program_end_ptr:	program_end
+
+fn_load_tma:		0001003
+fn_load_ps_0:		0001010
+fn_load_ps_1:		0001030
+fn_load_ps_2:		0001050
+fn_load_ps_3:		0001370
+fn_start:		0040000
+fn_stop:		0100000
+
+fn_load_ma:		0001002
+fn_examine_regmd:	0002015
+fn_examine_regmd_o1:	0002035
+fn_examine_regmd_o2:	0002055
+fn_examine_regmd_o3:	0002075
+
+fn_examine_regpsa:	0002000
+fn_examine_regtma:	0002003
+
+cmd_wtsr:		0021031
+cmd_wtfn:		0022031
+cmd_rdfn:		0022030
+cmd_rdlt:		0023030
+	
+read_back:
 	;; Read back the results
 	LDA 0,results_addr
 	LDA 1,cmd_wtsr
@@ -199,32 +229,5 @@ waitstop:
 	DOA 1,054
 	DIB 0,054
 	HALT
-	JMP start
-	;; DATA SECTION
-results_addr:		0000100
-load_addr:		0000200
-program_ptr:		program
-program_end_ptr:	program_end
-
-fn_load_tma:		0001003
-fn_load_ps_0:		0001010
-fn_load_ps_1:		0001030
-fn_load_ps_2:		0001050
-fn_load_ps_3:		0001370
-fn_start:		0040000
-fn_stop:		0100000
-
-fn_load_ma:		0001002
-fn_examine_regmd:	0002015
-fn_examine_regmd_o1:	0002035
-fn_examine_regmd_o2:	0002055
-fn_examine_regmd_o3:	0002075
-
-fn_examine_regpsa:	0002000
-fn_examine_regtma:	0002003
-
-cmd_wtsr:		0021031
-cmd_wtfn:		0022031
-cmd_rdfn:		0022030
-cmd_rdlt:		0023030
-
+	JMP @start_ptr
+start_ptr: start
