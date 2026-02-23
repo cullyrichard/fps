@@ -10,16 +10,26 @@ program:
 0103000
 0002000
 0004430
-;LDMA;DB=@0100
+;LDMA;DB=@077
 0000003
 0102000
 0002000
-0000100
-;MI<DB;DB=TM
+0000077
+;No-Op
+0000000
+0000000
+0000000
+0000000
+;MI<DB;INCMA;DB=TM
 0000000
 0000000
 0007000
-0000300
+0000320
+;No-Op
+0000000
+0000000
+0000000
+0000000
 ;No-Op
 0000000
 0000000
@@ -168,6 +178,27 @@ waitstop:
 	DOA 1,054
 	DIB 0,054
 	HALT
+	
+	;; read psa
+	LDA 0,fn_examine_regpsa
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
+
+	LDA 1,cmd_rdlt
+	DOA 1,054
+	DIB 0,054
+	HALT
+	;; read tma
+	LDA 0,fn_examine_regtma
+	LDA 1,cmd_wtfn
+	DOA 1,054
+	DOB 0,054
+
+	LDA 1,cmd_rdlt
+	DOA 1,054
+	DIB 0,054
+	HALT
 	JMP start
 	;; DATA SECTION
 results_addr:		0000100
@@ -188,6 +219,9 @@ fn_examine_regmd:	0002015
 fn_examine_regmd_o1:	0002035
 fn_examine_regmd_o2:	0002055
 fn_examine_regmd_o3:	0002075
+
+fn_examine_regpsa:	0002000
+fn_examine_regtma:	0002003
 
 cmd_wtsr:		0021031
 cmd_wtfn:		0022031
