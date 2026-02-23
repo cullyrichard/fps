@@ -179,7 +179,7 @@ fn_load_tma:		0001003
 fn_load_ps_0:		0001010
 fn_load_ps_1:		0001030
 fn_load_ps_2:		0001050
-fn_load_ps_3:		0001170
+fn_load_ps_3:		0001370
 fn_start:		0040000
 fn_stop:		0100000
 
