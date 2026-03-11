@@ -1,0 +1,1101 @@
+{
+    "B": {
+        "name": "B",
+        "range": [
+            1,
+            63
+        ],
+        "codes": {
+            "1": {
+                "mn": "&"
+            }
+        }
+    },
+    "SOP": {
+        "name": "SOP",
+        "range": [
+            7,
+            60
+        ],
+        "codes": {
+            "0": {
+                "name": "SOP1",
+                "range": [
+                    15,
+                    54
+                ],
+                "disable": [
+                    "SPS"
+                ],
+                "codes": {
+                    "0": {
+                        "disable": [
+                            "SPD"
+                        ]
+                    },
+                    "1": {
+                        "mn": "WRTEXP"
+                    },
+                    "2": {
+                        "mn": "WRTHMN"
+                    },
+                    "3": {
+                        "mn": "WRTLMN"
+                    },
+                    "8": {
+                        "mn": "CLR"
+                    },
+                    "9": {
+                        "mn": "INC"
+                    },
+                    "10": {
+                        "mn": "DEC"
+                    },
+                    "11": {
+                        "mn": "COM"
+                    },
+                    "12": {
+                        "mn": "LDSPNL"
+                    },
+                    "13": {
+                        "mn": "LDSPE"
+                    },
+                    "14": {
+                        "mn": "LDSPI"
+                    },
+                    "15": {
+                        "mn": "LDSPT"
+                    }
+                }
+            },
+            "1": {
+                "name": "SPEC",
+                "range": [
+                    15,
+                    54
+                ],
+                "disable": [
+                    "SPS",
+                    "SPD"
+                ],
+                "codes": {
+                    "0": {
+                        "name": "STEST",
+                        "range": [
+                            15,
+                            50
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "BFLT"
+                            },
+                            "1": {
+                                "mn": "BLT"
+                            },
+                            "2": {
+                                "mn": "BNC"
+                            },
+                            "3": {
+                                "mn": "BZC"
+                            },
+                            "4": {
+                                "mn": "BDBN"
+                            },
+                            "5": {
+                                "mn": "BDBZ"
+                            },
+                            "6": {
+                                "mn": "BIFN"
+                            },
+                            "7": {
+                                "mn": "BIFZ"
+                            },
+                            "12": {
+                                "mn": "BFL0"
+                            },
+                            "13": {
+                                "mn": "BFL1"
+                            },
+                            "14": {
+                                "mn": "BFL2"
+                            },
+                            "15": {
+                                "mn": "BFL3"
+                            }
+                        }
+                    },
+                    "1": {
+                        "name": "HOSTPNL",
+                        "range": [
+                            15,
+                            50
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "PNLLIT"
+                            },
+                            "1": {
+                                "mn": "DBELIT"
+                            },
+                            "2": {
+                                "mn": "DBHLIT"
+                            },
+                            "3": {
+                                "mn": "DBLLIT"
+                            },
+                            "8": {
+                                "mn": "SWDB"
+                            },
+                            "9": {
+                                "mn": "SWDBE"
+                            },
+                            "10": {
+                                "mn": "SWDBH"
+                            },
+                            "11": {
+                                "mn": "SWDBL"
+                            }
+                        }
+                    },
+                    "2": {
+                        "mn": "SPMDA"
+                    },
+                    "8": {
+                        "name": "SETPSA",
+                        "range": [
+                            15,
+                            50
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "JMPA",
+                                "value": true
+                            },
+                            "1": {
+                                "mn": "JSRA",
+                                "value": true
+                            },
+                            "2": {
+                                "mn": "JMP",
+                                "value": true
+                            },
+                            "3": {
+                                "mn": "JSR",
+                                "value": true
+                            },
+                            "4": {
+                                "mn": "JMPT"
+                            },
+                            "5": {
+                                "mn": "JSRT"
+                            },
+                            "6": {
+                                "mn": "JMPP"
+                            },
+                            "7": {
+                                "mn": "JSRP"
+                            }
+                        }
+                    },
+                    "9": {
+                        "name": "PSEVEN",
+                        "range": [
+                            15,
+                            50
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "RPS0A",
+                                "value": true
+                            },
+                            "1": {
+                                "mn": "RPS2A",
+                                "value": true
+                            },
+                            "2": {
+                                "mn": "RPS0",
+                                "value": true
+                            },
+                            "3": {
+                                "mn": "RPS2",
+                                "value": true
+                            },
+                            "4": {
+                                "mn": "RPS0T"
+                            },
+                            "5": {
+                                "mn": "RPS2T"
+                            },
+                            "8": {
+                                "mn": "WPS0A",
+                                "value": true
+                            },
+                            "9": {
+                                "mn": "WPS2A",
+                                "value": true
+                            },
+                            "10": {
+                                "mn": "WPS0",
+                                "value": true
+                            },
+                            "11": {
+                                "mn": "WPS2",
+                                "value": true
+                            },
+                            "12": {
+                                "mn": "WPS0T"
+                            },
+                            "13": {
+                                "mn": "WPS2T"
+                            }
+                        }
+                    },
+                    "10": {
+                        "name": "PSODD",
+                        "range": [
+                            15,
+                            50
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "RPS1A",
+                                "value": true
+                            },
+                            "1": {
+                                "mn": "RPS3A",
+                                "value": true
+                            },
+                            "2": {
+                                "mn": "RPS1",
+                                "value": true
+                            },
+                            "3": {
+                                "mn": "RPS3",
+                                "value": true
+                            },
+                            "4": {
+                                "mn": "RPS1T"
+                            },
+                            "5": {
+                                "mn": "RPS3T"
+                            },
+                            "8": {
+                                "mn": "WPS1A",
+                                "value": true
+                            },
+                            "9": {
+                                "mn": "WPS3A",
+                                "value": true
+                            },
+                            "10": {
+                                "mn": "WPS1",
+                                "value": true
+                            },
+                            "11": {
+                                "mn": "WPS3",
+                                "value": true
+                            },
+                            "12": {
+                                "mn": "WPS1T"
+                            },
+                            "13": {
+                                "mn": "WPS3T"
+                            }
+                        }
+                    },
+                    "11": {
+                        "name": "PS",
+                        "range": [
+                            15,
+                            50
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "RPSLA",
+                                "value": true
+                            },
+                            "1": {
+                                "mn": "RPSFA",
+                                "value": true
+                            },
+                            "2": {
+                                "mn": "RPSL",
+                                "value": true
+                            },
+                            "3": {
+                                "mn": "RPSF",
+                                "value": true
+                            },
+                            "4": {
+                                "mn": "RPSLT"
+                            },
+                            "5": {
+                                "mn": "RPSFT"
+                            },
+                            "6": {
+                                "mn": "RPSLP"
+                            },
+                            "7": {
+                                "mn": "RPSFP"
+                            },
+                            "8": {
+                                "mn": "LPSLA",
+                                "value": true
+                            },
+                            "9": {
+                                "mn": "LPSFA",
+                                "value": true
+                            },
+                            "10": {
+                                "mn": "LPSL",
+                                "value": true
+                            },
+                            "11": {
+                                "mn": "LPSF",
+                                "value": true
+                            },
+                            "12": {
+                                "mn": "LPSLT"
+                            },
+                            "13": {
+                                "mn": "LPSFT"
+                            },
+                            "14": {
+                                "mn": "LPSLP"
+                            },
+                            "15": {
+                                "mn": "LPSFP"
+                            }
+                        }
+                    },
+                    "12": {
+                        "name": "SETEXIT",
+                        "range": [
+                            15,
+                            50
+                        ],
+                        "codes": {
+                            "1": {
+                                "mn": "SETEXA",
+                                "value": true
+                            },
+                            "3": {
+                                "mn": "SETEX",
+                                "value": true
+                            },
+                            "5": {
+                                "mn": "SETEXT"
+                            },
+                            "7": {
+                                "mn": "SETEXP"
+                            }
+                        }
+                    }
+                }
+            },
+            "2": {
+                "mn": "ADD"
+            },
+            "3": {
+                "mn": "SUB"
+            },
+            "4": {
+                "mn": "MOV"
+            },
+            "5": {
+                "mn": "AND"
+            },
+            "6": {
+                "mn": "OR"
+            },
+            "7": {
+                "mn": "EQV"
+            }
+        }
+    },
+    "SH": {
+        "name": "SH",
+        "range": [
+            3,
+            58
+        ],
+        "codes": {
+            "1": {
+                "mn": "L"
+            },
+            "2": {
+                "mn": "RR"
+            },
+            "3": {
+                "mn": "R"
+            }
+        }
+    },
+    "SPS": {
+        "name": "SPS",
+        "range": [
+            15,
+            54
+        ],
+        "data": true
+    },
+    "SPD": {
+        "name": "SPD",
+        "range": [
+            15,
+            50
+        ],
+        "data": true
+    },
+    "FADD": {
+        "name": "FADD",
+        "range": [
+            7,
+            47
+        ],
+        "codes": {
+            "0": {
+                "name": "FADD1",
+                "range": [
+                    7,
+                    44
+                ],
+                "disable": [
+                    "A1"
+                ],
+                "codes": {
+                    "0": {
+                        "disable": [
+                            "A2"
+                        ]
+                    },
+                    "1": {
+                        "mn": "FIX"
+                    },
+                    "2": {
+                        "mn": "FIXT"
+                    },
+                    "3": {
+                        "mn": "FSCLT"
+                    },
+                    "4": {
+                        "mn": "FSM2C"
+                    },
+                    "5": {
+                        "mn": "F2CSM"
+                    },
+                    "6": {
+                        "mn": "FSCALE"
+                    },
+                    "7": {
+                        "mn": "FABS"
+                    }
+                }
+            },
+            "1": {
+                "mn": "FSUBR"
+            },
+            "2": {
+                "mn": "FSUB"
+            },
+            "3": {
+                "mn": "FADD"
+            },
+            "4": {
+                "mn": "FEQV"
+            },
+            "5": {
+                "mn": "FAND"
+            },
+            "6": {
+                "mn": "FOR"
+            },
+            "7": {
+                "name": "IO",
+                "range": [
+                    7,
+                    44
+                ],
+                "disable": [
+                    "A1",
+                    "A2"
+                ],
+                "codes": {
+                    "0": {
+                        "name": "LDREG",
+                        "range": [
+                            7,
+                            41
+                        ],
+                        "codes": {
+                            "1": {
+                                "mn": "LDSPD"
+                            },
+                            "2": {
+                                "mn": "LDMA"
+                            },
+                            "3": {
+                                "mn": "LDTMA"
+                            },
+                            "4": {
+                                "mn": "LDDPA"
+                            },
+                            "5": {
+                                "mn": "LDSP"
+                            },
+                            "6": {
+                                "mn": "LDAPS"
+                            },
+                            "7": {
+                                "mn": "LDDA"
+                            }
+                        }
+                    },
+                    "1": {
+                        "name": "RDREG",
+                        "range": [
+                            7,
+                            41
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "RPSA"
+                            },
+                            "1": {
+                                "mn": "RSPD"
+                            },
+                            "2": {
+                                "mn": "RMA"
+                            },
+                            "3": {
+                                "mn": "RTMA"
+                            },
+                            "4": {
+                                "mn": "RSP"
+                            },
+                            "5": {
+                                "mn": "RDPA"
+                            },
+                            "6": {
+                                "mn": "RSP"
+                            },
+                            "7": {
+                                "mn": "RDA"
+                            }
+                        }
+                    },
+                    "2": {
+                        "mn": "SPMDAV"
+                    },
+                    "3": {
+                        "mn": "REXIT"
+                    },
+                    "4": {
+                        "name": "INOUT",
+                        "range": [
+                            7,
+                            41
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "OUT"
+                            },
+                            "1": {
+                                "mn": "SPNOUT"
+                            },
+                            "2": {
+                                "mn": "OUTDA"
+                            },
+                            "3": {
+                                "mn": "SPOTDA"
+                            },
+                            "4": {
+                                "mn": "IN"
+                            },
+                            "5": {
+                                "mn": "SPININ"
+                            },
+                            "6": {
+                                "mn": "INDA"
+                            },
+                            "7": {
+                                "mn": "SPINDA"
+                            }
+                        }
+                    },
+                    "5": {
+                        "name": "SENCE",
+                        "range": [
+                            7,
+                            41
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "SNSA"
+                            },
+                            "1": {
+                                "mn": "SPINA"
+                            },
+                            "2": {
+                                "mn": "SNSADA"
+                            },
+                            "3": {
+                                "mn": "SPNADA"
+                            },
+                            "4": {
+                                "mn": "SNSB"
+                            },
+                            "5": {
+                                "mn": "SPINB"
+                            },
+                            "6": {
+                                "mn": "SNSBDA"
+                            },
+                            "7": {
+                                "mn": "SPNBDA"
+                            }
+                        }
+                    },
+                    "6": {
+                        "name": "FLAG",
+                        "range": [
+                            7,
+                            41
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "SFL0"
+                            },
+                            "1": {
+                                "mn": "SFL1"
+                            },
+                            "2": {
+                                "mn": "SFL2"
+                            },
+                            "3": {
+                                "mn": "SFL3"
+                            },
+                            "4": {
+                                "mn": "CFL0"
+                            },
+                            "5": {
+                                "mn": "CFL1"
+                            },
+                            "6": {
+                                "mn": "CFL2"
+                            },
+                            "7": {
+                                "mn": "CFL3"
+                            }
+                        }
+                    },
+                    "7": {
+                        "name": "CONTROL",
+                        "range": [
+                            7,
+                            41
+                        ],
+                        "codes": {
+                            "0": {
+                                "mn": "HALT"
+                            },
+                            "1": {
+                                "mn": "IORST"
+                            },
+                            "2": {
+                                "mn": "INTEN"
+                            },
+                            "3": {
+                                "mn": "INTA"
+                            },
+                            "4": {
+                                "mn": "REFR"
+                            },
+                            "5": {
+                                "mn": "WRTEX"
+                            },
+                            "6": {
+                                "mn": "WRTMAN"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "A1": {
+        "name": "A1",
+        "range": [
+            7,
+            44
+        ],
+        "codes": {
+            "0": {
+                "mn": "NC"
+            },
+            "1": {
+                "mn": "FM"
+            },
+            "2": {
+                "mn": "DPX(IDX)",
+                "IDX": "XR"
+            },
+            "3": {
+                "mn": "DPY(IDX)",
+                "IDX": "YR"
+            },
+            "4": {
+                "mn": "TM"
+            },
+            "5": {
+                "mn": "ZERO"
+            }
+        }
+    },
+    "A2": {
+        "name": "A2",
+        "range": [
+            7,
+            41
+        ],
+        "codes": {
+            "0": {
+                "mn": "NC"
+            },
+            "1": {
+                "mn": "FM"
+            },
+            "2": {
+                "mn": "DPX(IDX)",
+                "IDX": "XR"
+            },
+            "3": {
+                "mn": "DPY(IDX)",
+                "IDX": "YR"
+            },
+            "4": {
+                "mn": "MD"
+            },
+            "5": {
+                "mn": "ZERO"
+            },
+            "6": {
+                "mn": "MDPX(IDX)",
+                "IDX": "XR"
+            },
+            "7": {
+                "mn": "EDPX(IDX)",
+                "IDX": "XR"
+            }
+        }
+    },
+    "COND": {
+        "name": "COND",
+        "range": [
+            15,
+            37
+        ],
+        "codes": {
+            "0": {
+                "disable": [
+                    "DISP"
+                ]
+            },
+            "1": {
+                "mn": "#"
+            },
+            "2": {
+                "mn": "BR"
+            },
+            "3": {
+                "mn": "BINTRQ"
+            },
+            "4": {
+                "mn": "BION"
+            },
+            "5": {
+                "mn": "BIOZ"
+            },
+            "6": {
+                "mn": "BFPE"
+            },
+            "7": {
+                "mn": "RETURN"
+            },
+            "8": {
+                "mn": "BFEQ"
+            },
+            "9": {
+                "mn": "BFNE"
+            },
+            "10": {
+                "mn": "BFGE"
+            },
+            "11": {
+                "mn": "BFGT"
+            },
+            "12": {
+                "mn": "BEQ"
+            },
+            "13": {
+                "mn": "BNE"
+            },
+            "14": {
+                "mn": "BGE"
+            },
+            "15": {
+                "mn": "BGT"
+            }
+        }
+    },
+    "DISP": {
+        "name": "DISP",
+        "range": [
+            31,
+            32
+        ],
+        "data": true
+    },
+    "DPX": {
+        "name": "DPX",
+        "range": [
+            3,
+            30
+        ],
+        "codes": {
+            "1": {
+                "mn": "DPX(IDX)<DB",
+                "IDX": "XW"
+            },
+            "2": {
+                "mn": "DPX(IDX)<FA",
+                "IDX": "XW"
+            },
+            "3": {
+                "mn": "DPX(IDX)<FM",
+                "IDX": "XW"
+            }
+        }
+    },
+    "DPY": {
+        "name": "DPX",
+        "range": [
+            3,
+            28
+        ],
+        "codes": {
+            "1": {
+                "mn": "DPY(IDX)<DB",
+                "IDX": "YW"
+            },
+            "2": {
+                "mn": "DPY(IDX)<FA",
+                "IDX": "YW"
+            },
+            "3": {
+                "mn": "DPY(IDX)<FM",
+                "IDX": "YW"
+            }
+        }
+    },
+    "DPBS": {
+        "name": "DPBS",
+        "range": [
+            7,
+            25
+        ],
+        "codes": {
+            "0": {
+                "mn": "DB=ZERO"
+            },
+            "1": {
+                "mn": "DB=INSB"
+            },
+            "2": {
+                "mn": "DB=VALUE",
+                "value": true
+            },
+            "3": {
+                "mn": "DB=DPX(IDX)",
+                "IDX": "XR"
+            },
+            "4": {
+                "mn": "DB=DPY(IDX)",
+                "IDX": "YR"
+            },
+            "5": {
+                "mn": "DB=MD"
+            },
+            "6": {
+                "mn": "DB=SPFN"
+            },
+            "7": {
+                "mn": "DB=TM"
+            }
+        }
+    },
+    "XR": {
+        "name": "XR",
+        "range": [
+            7,
+            22
+        ]
+    },
+    "YR": {
+        "name": "YR",
+        "range": [
+            7,
+            19
+        ]
+    },
+    "XW": {
+        "name": "XW",
+        "range": [
+            7,
+            16
+        ]
+    },
+    "YW": {
+        "name": "YW",
+        "range": [
+            7,
+            13
+        ]
+    },
+    "FM": {
+        "name": "FM",
+        "range": [
+            1,
+            12
+        ],
+        "codes": {
+            "0": {
+                "disable": [
+                    "M1",
+                    "M2"
+                ]
+            },
+            "1": {
+                "mn": "FMUL"
+            }
+        }
+    },
+    "M1": {
+        "name": "M1",
+        "range": [
+            3,
+            10
+        ],
+        "codes": {
+            "0": {
+                "mn": "FM"
+            },
+            "1": {
+                "mn": "DPX(IDX)",
+                "IDX": "XR"
+            },
+            "2": {
+                "mn": "DPY(IDX)",
+                "IDX": "YR"
+            },
+            "3": {
+                "mn": "TM"
+            }
+        }
+    },
+    "M2": {
+        "name": "M2",
+        "range": [
+            3,
+            8
+        ],
+        "codes": {
+            "0": {
+                "mn": "FA"
+            },
+            "1": {
+                "mn": "DPX(IDX)",
+                "IDX": "XR"
+            },
+            "2": {
+                "mn": "DPY(IDX)",
+                "IDX": "YR"
+            },
+            "3": {
+                "mn": "MD"
+            }
+        }
+    },
+    "MI": {
+        "name": "MI",
+        "range": [
+            3,
+            6
+        ],
+        "codes": {
+            "1": {
+                "mn": "MI<FA"
+            },
+            "2": {
+                "mn": "MI<FM"
+            },
+            "3": {
+                "mn": "MI<DB"
+            }
+        }
+    },
+    "MA": {
+        "name": "MA",
+        "range": [
+            3,
+            4
+        ],
+        "codes": {
+            "1": {
+                "mn": "INCMA"
+            },
+            "2": {
+                "mn": "DECMA"
+            },
+            "3": {
+                "mn": "SETMA"
+            }
+        }
+    },
+    "DPA": {
+        "name": "DPA",
+        "range": [
+            3,
+            2
+        ],
+        "codes": {
+            "1": {
+                "mn": "INCDPA"
+            },
+            "2": {
+                "mn": "DECDPA"
+            },
+            "3": {
+                "mn": "SETDPA"
+            }
+        }
+    },
+    "TMA": {
+        "name": "TMA",
+        "range": [
+            3,
+            0
+        ],
+        "codes": {
+            "1": {
+                "mn": "INCTMA"
+            },
+            "2": {
+                "mn": "DECTMA"
+            },
+            "3": {
+                "mn": "SETTMA"
+            }
+        }
+    }
+}
