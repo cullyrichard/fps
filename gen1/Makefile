@@ -1,6 +1,6 @@
 SOURCE ?= $(wildcard *.asm)     #overridable source
 INCLUDES ?=                     #overridable includes
-DGASM = ../dgnsdk/dgnasm_old/dgnasm
+DGASM = ../../dgnsdk/dgnasm_old/dgnasm
 
 .PHONY: txt bin all clean           #list fileless make entry
 

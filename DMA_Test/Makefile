@@ -1,9 +1,6 @@
+ASM=dgasm
 
-.PHONY: monitor dma load
-
-monitor: monitor.txt monitor.sim
-monitor.txt: monitor.s
-monitor.sim: monitor.s
+.PHONY: dma load
 
 dma: DMA.txt DMA.sim
 DMA.txt:DMA.s
@@ -14,6 +11,6 @@ load.txt:load.s
 load.sim:load.s
 
 %.txt:%.s
-	../dgasm/dgasm -t eclipse_s140 -f eclipse -o $@ $^
+	$(ASM) -t eclipse_s140 -f eclipse -o $@ $^
 %.sim:%.s
-	../dgasm/dgasm -t eclipse_s140 -f simh -o $@ $^
+	$(ASM) -t eclipse_s140 -f simh -o $@ $^
