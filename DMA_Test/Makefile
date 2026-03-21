@@ -1,6 +1,8 @@
 ASM=dgasm
 
-.PHONY: dma load
+.PHONY: all dma load
+
+all: dma load
 
 dma: DMA.txt DMA.sim
 DMA.txt:DMA.s
