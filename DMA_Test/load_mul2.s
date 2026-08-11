@@ -196,11 +196,11 @@ loadmd:
 
                     //;; Wait until the FPU is finished
 waitstop:
-	LDA 1,cmd_rdfn
+	LDA 1,cmd_rdfn,1
 	DOA 1,FPU
 	DIB 0,FPU
 
-	LDA 1,fn_stop
+	LDA 1,fn_stop,1
 	AND# 0,1,SNR
 	JMP waitstop
 
@@ -250,20 +250,20 @@ dw 0000004
 
 read_back:
 	;; Read back the results
-	LDA 0,results_addr
-	LDA 1,cmd_wtsr
+	LDA 0,results_addr,1
+	LDA 1,cmd_wtsr,1
 	DOA 1,FPU
 	DOB 0,FPU
 
 	;; Load address into MA
-	LDA 0,fn_load_ma
-	LDA 1,cmd_wtfn
+	LDA 0,fn_load_ma,1
+	LDA 1,cmd_wtfn,1
 	DOA 1,FPU
 	DOB 0,FPU
 
 	;; Second word
-	LDA 0,fn_examine_regmd_o1
-	LDA 1,cmd_wtfn
+	LDA 0,fn_examine_regmd_o1,1
+	LDA 1,cmd_wtfn,1
 	DOA 1,FPU
 	DOB 0,FPU
 
@@ -273,23 +273,23 @@ read_back:
 	HALT
 
 	;; Third word
-	LDA 0,fn_examine_regmd_o2
-	LDA 1,cmd_wtfn
+	LDA 0,fn_examine_regmd_o2,1
+	LDA 1,cmd_wtfn,1
 	DOA 1,FPU
 	DOB 0,FPU
 
-	LDA 1,cmd_rdlt
+	LDA 1,cmd_rdlt,1
 	DOA 1,FPU
 	DIB 0,FPU
 	HALT
 
 	;; Fourth word
-	LDA 0,fn_examine_regmd_o3
-	LDA 1,cmd_wtfn
+	LDA 0,fn_examine_regmd_o3,1
+	LDA 1,cmd_wtfn,1
 	DOA 1,FPU
 	DOB 0,FPU
 
-	LDA 1,cmd_rdlt
+	LDA 1,cmd_rdlt,1
 	DOA 1,FPU
 	DIB 0,FPU
 	HALT
