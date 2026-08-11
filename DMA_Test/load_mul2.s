@@ -193,7 +193,17 @@ loadmd:
 	LDA 1,cmd_wtfn
 	DOA 1,FPU
 	DOB 0,FPU
-  
+
+                    //;; Wait until the FPU is finished
+waitstop:
+	LDA 1,cmd_rdfn
+	DOA 1,FPU
+	DIB 0,FPU
+
+	LDA 1,fn_stop
+	AND# 0,1,SNR
+	JMP waitstop
+
 	JMP read_back
 
 fn_load_tma:
@@ -220,9 +230,12 @@ dw 0001055
 fn_load_md_3:
 dw 0001175
 
-fn_examine_regmd_o1:	0002035
-fn_examine_regmd_o2:	0002055
-fn_examine_regmd_o3:	0002075
+fn_examine_regmd_o1:
+dw 	0002035
+fn_examine_regmd_o2:
+dw	0002055
+fn_examine_regmd_o3:
+dw	0002075
 
 cmd_wtsr:
 dw 0021031
